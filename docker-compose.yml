@@ -5,7 +5,8 @@ services:
       args:
         - API_LEVEL=29
         - CMD_LINE_VERSION=11076708_latest
-        - IMG_TYPE=google_apis
+        #- IMG_TYPE=google_apis
+        - IMG_TYPE=google_apis_playstore
     ports:
       #- 5554:5554
       - 5555:5555
