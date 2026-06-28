@@ -8,17 +8,18 @@ services:
         #- IMG_TYPE=google_apis
         - IMG_TYPE=google_apis_playstore
     ports:
-      #- 5554:5554
+      - 5554:5554
       - 5555:5555
     environment:
       - DISABLE_ANIMATION=true
       - DISABLE_HIDDEN_POLICY=true
       - SKIP_AUTH=true
+      - ADB_SKIP_AUTH=1
       #- ANDROID_ADB_SERVER_ADDRESS=host.docker.internal
       - MEMORY=1024
       - CORES=2
-      - ANDROID_EMU_FORCE_QUICKBOOT_FILE_BACKED=1
-      - EMULATOR_ARGS=-gpu host -no-audio -no-window -no-snapshot -no-boot-anim
+      #- ANDROID_EMU_FORCE_QUICKBOOT_FILE_BACKED=1
+      #- EMULATOR_ARGS=-gpu host -no-audio -no-window -no-snapshot -no-boot-anim
       #- EMULATOR_ARGS=-gpu swiftshader_indirect -no-audio -no-window -no-snapshot -no-boot-anim
     privileged: true
     tty: true
