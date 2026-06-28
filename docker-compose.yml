@@ -1,22 +1,24 @@
-version: "4"
 services:
   android-emulator:
     build:
       context: .
       args:
-        - API_LEVEL=34
+        - API_LEVEL=29
         - CMD_LINE_VERSION=11076708_latest
         - IMG_TYPE=google_apis
     ports:
-      - 5554:5554
-      - 127.0.0.1:5555:5555
+      #- 5554:5554
+      - 5555:5555
     environment:
-      - DISABLE_ANIMATION=false
+      - DISABLE_ANIMATION=true
       - DISABLE_HIDDEN_POLICY=true
-      - SKIP_AUTH=false
+      - SKIP_AUTH=true
       #- ANDROID_ADB_SERVER_ADDRESS=host.docker.internal
-      - MEMORY=16384
-      - CORES=16
+      - MEMORY=1024
+      - CORES=2
+      - ANDROID_EMU_FORCE_QUICKBOOT_FILE_BACKED=1
+      - EMULATOR_ARGS=-gpu host -no-audio -no-window -no-snapshot -no-boot-anim
+      #- EMULATOR_ARGS=-gpu swiftshader_indirect -no-audio -no-window -no-snapshot -no-boot-anim
     privileged: true
     tty: true
     stdin_open: true
